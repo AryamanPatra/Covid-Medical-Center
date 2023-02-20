@@ -42,10 +42,6 @@ public class AdminActivity extends AppCompatActivity {
         Gson gson = new Gson();
 
 
-        //Adding elements
-        medCentreArrayList.add(new MedCentre("Capital Hospital",3));
-        medCentreArrayList.add(new MedCentre("SUM Hospital",4));
-
         //RecyclerView & CustomAdapter in use
         recyclerView =findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -121,15 +117,16 @@ public class AdminActivity extends AppCompatActivity {
                 builder.create().show();
             }
         });
-        ed.clear().commit();
-//        //Retrieving data when app launched
-//        for (int i=0; i<sp.getInt("length",0); i++){
-//            String json = sp.getString(i+"","");
-//            MedCentre mc = gson.fromJson(json,MedCentre.class);
-//            if (mc==null)
-//                Log.d("f","It's null");
-//            medCentreArrayList.add(mc);
-//            ad.notifyDataSetChanged();
-//        }
+
+        //Retrieving data when app launched
+        int retrievedSize = sp.getInt("length",0);
+        for (int i=0; i<retrievedSize; i++){
+            String json = sp.getString(i+"","");
+            MedCentre mc = gson.fromJson(json,MedCentre.class);
+            if (mc==null)
+                Log.d("f","It's null");
+            medCentreArrayList.add(mc);
+            ad.notifyDataSetChanged();
+        }
     }
 }
