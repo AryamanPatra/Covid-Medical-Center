@@ -65,8 +65,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        viewHolder.getTextViews()[0].setText(localDataSet.get(position).getCentreName());
-        viewHolder.getTextViews()[1].setText(localDataSet.get(position).getSlots()+"");
+        try{
+            viewHolder.getTextViews()[0].setText(localDataSet.get(position).getCentreName());
+            viewHolder.getTextViews()[1].setText(localDataSet.get(position).getSlots());
+        }
+        catch (Exception ne){
+            viewHolder.getTextViews()[0].setText("Error!");
+            viewHolder.getTextViews()[1].setText("404");
+        }
     }
 
     // Return the size of your dataset (invoked by the layout manager)

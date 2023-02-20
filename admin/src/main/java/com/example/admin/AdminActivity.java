@@ -7,12 +7,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.common.MedCentre;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.gson.Gson;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -25,12 +28,19 @@ public class AdminActivity extends AppCompatActivity {
     MedCentre[] arr = {new MedCentre("Capital Hospital",5),
             new MedCentre("SUM Hospital",7)};
     ArrayList<MedCentre> medCentreArrayList = new ArrayList<MedCentre>();
+    int size;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_main);
+
+        //Storing data using GSon
+        SharedPreferences sp = getSharedPreferences("MyPref",MODE_PRIVATE);
+        SharedPreferences.Editor ed = sp.edit();
+        Gson gson = new Gson();
+
 
         //Adding elements
         medCentreArrayList.add(new MedCentre("Capital Hospital",3));
@@ -58,6 +68,7 @@ public class AdminActivity extends AppCompatActivity {
                 EditText editText2 = customLayout.findViewById(R.id.edSlots);
                 final String[] centreName = new String[1];
                 final String[] slots = new String[1];
+
                 editText1.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -96,13 +107,29 @@ public class AdminActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
 
                         int slotsNum = Integer.parseInt(slots[0]);
-                        if (centreName[0]!=null && slots[0]!=null)
+                        if (centreName[0]!=null && slots[0]!=null){
                             medCentreArrayList.add(new MedCentre(centreName[0],slotsNum));
+                            size = medCentreArrayList.size();
+                            String json = gson.toJson(medCentreArrayList.get(size-1));
+                            ed.putString((size-1)+"",json);
+                            ed.putInt("length",size);
+                            ed.commit();
+                        }
                         ad.notifyDataSetChanged();
                     }
                 });
                 builder.create().show();
             }
         });
+        ed.clear().commit();
+//        //Retrieving data when app launched
+//        for (int i=0; i<sp.getInt("length",0); i++){
+//            String json = sp.getString(i+"","");
+//            MedCentre mc = gson.fromJson(json,MedCentre.class);
+//            if (mc==null)
+//                Log.d("f","It's null");
+//            medCentreArrayList.add(mc);
+//            ad.notifyDataSetChanged();
+//        }
     }
 }
