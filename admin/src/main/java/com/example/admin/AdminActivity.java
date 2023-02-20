@@ -54,14 +54,14 @@ public class AdminActivity extends AppCompatActivity {
 
                 View customLayout = getLayoutInflater().inflate(R.layout.alert_dialog_layout,null);
                 builder.setView(customLayout);
-                EditText editText1 = findViewById(R.id.edCentre);
-                EditText editText2 = findViewById(R.id.edSlots);
+                EditText editText1 = customLayout.findViewById(R.id.edCentre);
+                EditText editText2 = customLayout.findViewById(R.id.edSlots);
                 final String[] centreName = new String[1];
                 final String[] slots = new String[1];
                 editText1.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                        centreName[0] = charSequence.toString();
+
                     }
 
                     @Override
@@ -71,13 +71,13 @@ public class AdminActivity extends AppCompatActivity {
 
                     @Override
                     public void afterTextChanged(Editable editable) {
-
+                        centreName[0] = editable.toString();
                     }
                 });
                 editText2.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                        slots[0] = charSequence.toString();
+
                     }
 
                     @Override
@@ -87,7 +87,7 @@ public class AdminActivity extends AppCompatActivity {
 
                     @Override
                     public void afterTextChanged(Editable editable) {
-
+                        slots[0] = editable.toString();
                     }
                 });
 
