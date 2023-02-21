@@ -18,6 +18,8 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 
 import java.util.ArrayList;
@@ -25,6 +27,7 @@ import java.util.ArrayList;
 public class AdminActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     FloatingActionButton fa;
+    ImageButton imb;
     MedCentre[] arr = {new MedCentre("Capital Hospital",5),
             new MedCentre("SUM Hospital",7)};
     ArrayList<MedCentre> medCentreArrayList = new ArrayList<MedCentre>();
@@ -115,6 +118,17 @@ public class AdminActivity extends AppCompatActivity {
                     }
                 });
                 builder.create().show();
+            }
+        });
+
+        //Deleting Data using Image Button
+        View temp = getLayoutInflater().inflate(R.layout.data_row,null);
+        imb = temp.findViewById(R.id.delData);
+        imb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imb.setTag(0);
+                Toast.makeText(AdminActivity.this,"Clicked",Toast.LENGTH_SHORT).show();
             }
         });
 

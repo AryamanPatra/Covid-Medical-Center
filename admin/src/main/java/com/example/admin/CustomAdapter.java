@@ -27,8 +27,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             super(view);
             // Define click listener for the ViewHolder's View
 
-            textViews[0] = (TextView) view.findViewById(R.id.textView);
-            textViews[1] = (TextView) view.findViewById(R.id.textView2);
+            textViews[0] = (TextView) view.findViewById(R.id.centreNameTv);
+            textViews[1] = (TextView) view.findViewById(R.id.slotsNumTv);
         }
 
         public TextView[] getTextViews() {
