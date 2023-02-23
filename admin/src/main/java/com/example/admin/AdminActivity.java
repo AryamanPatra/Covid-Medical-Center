@@ -160,6 +160,15 @@ public class AdminActivity extends AppCompatActivity {
                                 String mcName = medCentreArrayList.get(j).getCentreName();
                                 if (mcName.equals(centreName[0])){
                                     medCentreArrayList.remove(j);
+                                    sp.edit().remove(j+"").commit();
+                                    int retrievedSize = sp.getInt("length",0);
+                                    for (int k=j; k<retrievedSize-1; k++){
+                                        String json = sp.getString((k+1)+"","");
+                                        ed.putString(k+"",json);
+                                        ed.commit();
+                                    }
+                                    ed.putInt("length",--retrievedSize);
+                                    ed.commit();
                                     ad.notifyDataSetChanged();
                                     break;
                                 }
