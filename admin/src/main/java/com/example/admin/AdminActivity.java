@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 public class AdminActivity extends AppCompatActivity {
     RecyclerView recyclerView;
-    FloatingActionButton fa;
+    FloatingActionButton fa1,fa2;
     ImageButton imb;
     MedCentre[] arr = {new MedCentre("Capital Hospital",5),
             new MedCentre("SUM Hospital",7)};
@@ -53,8 +53,8 @@ public class AdminActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
 
         //Floating Action Button to add
-        fa = findViewById(R.id.add_alarm_fab);
-        fa.setOnClickListener(new View.OnClickListener(){
+        fa1 = findViewById(R.id.add_element);
+        fa1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
 
@@ -115,6 +115,56 @@ public class AdminActivity extends AppCompatActivity {
                             ed.commit();
                         }
                         ad.notifyDataSetChanged();
+                    }
+                });
+                builder.create().show();
+            }
+        });
+
+        //Floating Action Button to del
+        fa2 = findViewById(R.id.del_element);
+        fa2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(AdminActivity.this);
+                builder.setTitle("Delete Slots");
+
+                View customLayout = getLayoutInflater().inflate(R.layout.del_alert_layout,null);
+                builder.setView(customLayout);
+                EditText editText1 = customLayout.findViewById(R.id.edDelCentre);
+                final String[] centreName = new String[1];
+
+                editText1.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable editable) {
+                        centreName[0] = editable.toString();
+                    }
+                });
+
+                builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        size = medCentreArrayList.size();
+                        if (centreName[0]!=null){
+                            for(int j=0; j< size;j++){
+                                String mcName = medCentreArrayList.get(j).getCentreName();
+                                if (mcName.equals(centreName[0])){
+                                    medCentreArrayList.remove(j);
+                                    ad.notifyDataSetChanged();
+                                    break;
+                                }
+                            }
+                        }
                     }
                 });
                 builder.create().show();
