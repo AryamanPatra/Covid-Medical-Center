@@ -3,71 +3,59 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="250dp">
+    android:layout_height="150dp">
 
     <TextView
         android:id="@+id/centreNameTv"
         android:layout_width="150dp"
         android:layout_height="100dp"
         android:layout_margin="20dp"
-        android:autoSizeMaxTextSize="24sp"
-        android:autoSizeMinTextSize="16sp"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMaxTextSize="24dp"
+        android:autoSizeMinTextSize="14dp"
+        android:autoSizeStepGranularity="2dp"
+        android:textSize="20dp"
         android:fontFamily="@font/alegreya_sans_sc"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:padding="10dp"
         android:text="TextView"
         android:textColor="#5A5155"
-        android:textSize="12dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.789"
+        app:layout_constraintHorizontal_bias="0.413"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.077" />
+        app:layout_constraintVertical_bias="0.32" />
 
     <TextView
         android:id="@+id/slotsNumTv"
-        android:height="38dp"
-        android:width="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:width="50dp"
+        android:height="38dp"
         android:fontFamily="@font/alegreya_sans_sc"
         android:text="TextView"
-        android:textSize="17dp"
         android:textColor="#5A5155"
+        android:textSize="19dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintHorizontal_bias="0.889"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/centreNameTv"
-        app:layout_constraintVertical_bias="0.838" />
-
-    <ImageButton
-        android:id="@+id/delData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:maxHeight="48dp"
-        android:maxWidth="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.874"
-        app:layout_constraintLeft_toRightOf="@id/slotsNumTv"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.912"
-        app:srcCompat="@drawable/trash_icon" />
+        app:layout_constraintVertical_bias="0.758" />
 
     <ImageView
         android:id="@+id/hospitalLogo"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.123"
+        app:layout_constraintVertical_bias="0.444"
         app:srcCompat="@drawable/hospital_icon" />
 
     <TextView
@@ -77,10 +65,11 @@
         android:fontFamily="@font/alegreya_sans_sc_thin"
         android:text="No. of Slots:"
         android:textStyle="bold"
+        android:textSize="17dp"
         app:layout_constraintBottom_toTopOf="@+id/slotsNumTv"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.838"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hospitalLogo"
-        app:layout_constraintVertical_bias="0.688" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.672" />
 </androidx.constraintlayout.widget.ConstraintLayout>

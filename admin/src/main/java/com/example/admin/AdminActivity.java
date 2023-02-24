@@ -54,6 +54,7 @@ public class AdminActivity extends AppCompatActivity {
 
         //Floating Action Button to add
         fa1 = findViewById(R.id.add_element);
+        fa1.setImageTintList(null);
         fa1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -105,8 +106,8 @@ public class AdminActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        int slotsNum = Integer.parseInt(slots[0]);
                         if (centreName[0]!=null && slots[0]!=null){
+                            int slotsNum = Integer.parseInt(slots[0]);
                             medCentreArrayList.add(new MedCentre(centreName[0],slotsNum));
                             size = medCentreArrayList.size();
                             String json = gson.toJson(medCentreArrayList.get(size-1));
@@ -123,6 +124,7 @@ public class AdminActivity extends AppCompatActivity {
 
         //Floating Action Button to del
         fa2 = findViewById(R.id.del_element);
+        fa2.setImageTintList(null);
         fa2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -180,16 +182,6 @@ public class AdminActivity extends AppCompatActivity {
             }
         });
 
-        //Deleting Data using Image Button
-        View temp = getLayoutInflater().inflate(R.layout.data_row,null);
-        imb = temp.findViewById(R.id.delData);
-        imb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                imb.setTag(0);
-                Toast.makeText(AdminActivity.this,"Clicked",Toast.LENGTH_SHORT).show();
-            }
-        });
 
         //Retrieving data when app launched
         int retrievedSize = sp.getInt("length",0);

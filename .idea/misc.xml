@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Aryaman Patra/AndroidStudioProjects/Admin/admin/src/main/res/drawable/ic_baseline_add_24.xml" value="0.23072916666666668" />
+        <entry key="..\:/Users/Aryaman Patra/AndroidStudioProjects/Admin/admin/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.23072916666666668" />
         <entry key="..\:/Users/Aryaman Patra/AndroidStudioProjects/Admin/admin/src/main/res/layout/activity_main.xml" value="0.209375" />
         <entry key="..\:/Users/Aryaman Patra/AndroidStudioProjects/Admin/admin/src/main/res/layout/admin_main.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/Aryaman Patra/AndroidStudioProjects/Admin/admin/src/main/res/layout/alert_dialog_layout.xml" value="0.6" />
