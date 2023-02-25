@@ -15,6 +15,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
     private ArrayList<MedCentre> localDataSet;
 
+
     /**
      * Provide a reference to the type of views that you are using
      * (custom ViewHolder)
@@ -26,8 +27,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             super(view);
             // Define click listener for the ViewHolder's View
 
-            textViews[0] = (TextView) view.findViewById(R.id.textView);
-            textViews[1] = (TextView) view.findViewById(R.id.textView2);
+            textViews[0] = (TextView) view.findViewById(R.id.centreNameTv);
+            textViews[1] = (TextView) view.findViewById(R.id.slotsNumTv);
         }
 
         public TextView[] getTextViews() {
@@ -36,12 +37,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
     }
 
+
     /**
      * STEP 1: Initialize the dataset of the Adapter
      */
     public CustomAdapter(ArrayList<MedCentre> al) {
         localDataSet = al;
     }
+
 
     // STEP 2: Create new views (invoked by the layout manager)
     @Override @NonNull
@@ -53,11 +56,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         return new ViewHolder(view);
     }
 
-//    @NonNull
-//    @Override
-//    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-//        return null;
-//    }
 
     // STEP 3: Replace the contents of a view (invoked by the layout manager)
     @Override
@@ -65,8 +63,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        viewHolder.getTextViews()[0].setText(localDataSet.get(position).getCentreName());
-        viewHolder.getTextViews()[1].setText(localDataSet.get(position).getSlots()+"");
+        try{
+            viewHolder.getTextViews()[0].setText(localDataSet.get(position).getCentreName());
+            viewHolder.getTextViews()[1].setText(localDataSet.get(position).getSlots()+"");
+        }
+        catch (Exception ne){
+            viewHolder.getTextViews()[0].setText("Error!");
+            viewHolder.getTextViews()[1].setText("404");
+        }
     }
 
     // Return the size of your dataset (invoked by the layout manager)

@@ -3,39 +3,73 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="150dp">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="106dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/alata"
-        android:gravity="center"
+        android:id="@+id/centreNameTv"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMaxTextSize="24dp"
+        android:autoSizeMinTextSize="14dp"
+        android:autoSizeStepGranularity="2dp"
+        android:textSize="20dp"
+        android:fontFamily="@font/alegreya_sans_sc"
+        android:gravity="center_vertical"
+        android:padding="10dp"
         android:text="TextView"
-        android:textColor="@color/black"
-        android:textSize="12dp"
+        android:textColor="#5A5155"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.413"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.101" />
+        app:layout_constraintVertical_bias="0.32" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/slotsNumTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="@font/alatsi"
+        android:layout_margin="20dp"
+        android:width="50dp"
+        android:height="38dp"
+        android:fontFamily="@font/alegreya_sans_sc"
         android:text="TextView"
-        android:textSize="15dp"
+        android:textColor="#5A5155"
+        android:textSize="19dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.889"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.758" />
+
+    <ImageView
+        android:id="@+id/hospitalLogo"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.444"
+        app:srcCompat="@drawable/hospital_icon" />
+
+    <TextView
+        android:id="@+id/noOfSlots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alegreya_sans_sc_thin"
+        android:text="No. of Slots:"
+        android:textStyle="bold"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toTopOf="@+id/slotsNumTv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.838"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.672" />
 </androidx.constraintlayout.widget.ConstraintLayout>
